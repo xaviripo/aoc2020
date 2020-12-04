@@ -1,12 +1,6 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use crate::lib;
 
 pub const INPUT_FILE: &str = "input/3.txt";
-
-pub fn read_lines(file: &str) -> std::io::Result<impl Iterator<Item=String>> {
-    let file = File::open(file)?;
-    Ok(io::BufReader::new(file).lines().into_iter().flatten())
-}
 
 fn count_trees(lines: impl Iterator<Item=String>, right: usize, down: usize) -> usize {
     let mut position: usize = 0;
@@ -29,11 +23,11 @@ fn count_trees_multislope(lines: impl Iterator<Item=String>) -> usize {
 }
 
 pub fn run1(file: &str) -> std::io::Result<usize> {
-    Ok(count_trees(read_lines(file)?, 3, 1))
+    Ok(count_trees(lib::read_lines(file)?, 3, 1))
 }
 
 pub fn run2(file: &str) -> std::io::Result<usize> {
-    Ok(count_trees_multislope(read_lines(file)?))
+    Ok(count_trees_multislope(lib::read_lines(file)?))
 }
 
 #[cfg(test)]
