@@ -16,6 +16,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 
 use std::env;
 
@@ -51,6 +52,8 @@ fn main() {
         ("13", "2") => { println!("{}", day13::run2(day13::INPUT_FILE).unwrap()); }
         ("14", "1") => { println!("{}", day14::run1(day14::INPUT_FILE).unwrap()); }
         ("14", "2") => { println!("{}", day14::run2(day14::INPUT_FILE).unwrap()); }
+        ("15", "1") => { println!("{}", day15::run1(day15::INPUT_FILE).unwrap()); }
+        ("15", "2") => { println!("{}", day15::run2(day15::INPUT_FILE).unwrap()); }
         _ => { panic!("Unknown problem {:?} {:?}", &args[1], &args[2]) }
     }
 }
